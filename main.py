@@ -28,9 +28,9 @@ parser.add_argument('--base-width', default=64, type=int,
                     help='base width of resnets or hidden dim of fc nets')
 # training setting
 parser.add_argument('--data-root', help='The directory of data',
-                    default='~/datasets/CIFAR10', type=str)
+                    default='../DATASETS/SVHN', type=str)
 parser.add_argument('--dataset', help='dataset used to training',
-                    default='cifar10', type=str)
+                    default='SVHN', type=str)
 parser.add_argument('--train-sets', help='subsets (train/trainval) that used to training',
                     default='train', type=str)
 parser.add_argument('--val-sets', type=str, nargs='+', default=['noisy_val'],
@@ -107,6 +107,12 @@ def main():
 
     # prepare dataset
     train_loader, val_loaders, test_loader, num_classes, targets = get_loader(args)
+    
+    print("train_loader:",len(train_loader))
+    print("val_loader:", len(val_loaders))
+    print("test_loader:", len(test_loader))
+    print("num_classes:",num_classes)
+    print("targets:",len(targets))
 
     model = get_model(args, num_classes, base_width=args.base_width)
     if torch.cuda.device_count() > 1:
