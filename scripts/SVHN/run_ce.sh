@@ -15,11 +15,13 @@ SAVE_DIR=ckpts/${EXP_NAME}
 LOG_FILE=logs/${EXP_NAME}.log
 GPU_ID='0'
 RESUME='./ckpts/SVHN/resnet18_ce_corrupted_label_r0_cosine_/checkpoint_latest.tar'
+RESULT_DIR=results/${EXP_NAME}
 
 ### print info
 echo ${EXP_NAME}
 mkdir -p ckpts/${DATASET}
 mkdir -p logs/${DATASET}
+mkdir -p results/${DATASET}
 
 ### train
 CUDA_VISIBLE_DEVICES=${GPU_ID} \
@@ -30,5 +32,5 @@ python -u main.py --arch ${ARCH} --loss ${LOSS} \
         --train-sets ${TRAIN_SETS} --val-sets ${VAL_SETS} \
         --batch-size ${BATCH_SIZE} --epochs ${EPOCHS} \
         --save-dir ${SAVE_DIR} \
-        --resume ${RESUME} \
+        --result-dir ${RESULT_DIR} \
         >> ${LOG_FILE} 2>&1

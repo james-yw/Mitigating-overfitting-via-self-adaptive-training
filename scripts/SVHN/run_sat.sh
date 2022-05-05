@@ -16,6 +16,7 @@ EXP_NAME=${DATASET}/${ARCH}_${LOSS}_${NOISE_TYPE}_r${NOISE_RATE}_${LR_SCHEDULE}_
 SAVE_DIR=ckpts/${EXP_NAME}
 LOG_FILE=logs/${EXP_NAME}.log
 GPU_ID='0'
+RESUME='./ckpts/SVHN/resnet18_sat_corrupted_label_r0_cosine_/checkpoint_latest.tar'
 
 ### print info
 echo ${EXP_NAME}
@@ -32,4 +33,5 @@ python -u main.py --arch ${ARCH} --loss ${LOSS} \
         --train-sets ${TRAIN_SETS} --val-sets ${VAL_SETS} \
         --batch-size ${BATCH_SIZE} --epochs ${EPOCHS} \
         --save-dir ${SAVE_DIR} \
+        --resume ${RESUME} \
         >> ${LOG_FILE} 2>&1
