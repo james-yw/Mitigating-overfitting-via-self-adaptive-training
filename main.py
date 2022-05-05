@@ -28,9 +28,9 @@ parser.add_argument('--base-width', default=64, type=int,
                     help='base width of resnets or hidden dim of fc nets')
 # training setting
 parser.add_argument('--data-root', help='The directory of data',
-                    default='../DATASETS/SVHN', type=str)
+                    default='~/datasets/CIFAR10', type=str)
 parser.add_argument('--dataset', help='dataset used to training',
-                    default='SVHN', type=str)
+                    default='cifar10', type=str)
 parser.add_argument('--train-sets', help='subsets (train/trainval) that used to training',
                     default='train', type=str)
 parser.add_argument('--val-sets', type=str, nargs='+', default=['noisy_val'],
@@ -84,9 +84,20 @@ parser.add_argument('--save-dir', dest='save_dir',
                     default='save_temp', type=str)
 parser.add_argument('--save-freq', default=0, type=int,
                     help='print frequency (default: 0, i.e., only best and latest checkpoints are saved)')
+
+
+parser.add_argument('--result-dir', dest='result_dir',
+                    default='./result/SVHN', type=str)
 args = parser.parse_args()
 
 best_prec1 = 0
+
+train_loss = []
+train_acc = []
+
+test_loss = []
+test_acc = []
+
 if args.seed is None:
     import random
     args.seed = random.randint(1, 10000)
@@ -105,14 +116,12 @@ def main():
     if not os.path.exists(args.save_dir):
         os.makedirs(args.save_dir)
 
+    # Check the result_dir exists or not
+    if not os.path.exists(args.result_dir):
+        os.makedirs(args.result_dir)
+
     # prepare dataset
     train_loader, val_loaders, test_loader, num_classes, targets = get_loader(args)
-    
-    print("train_loader:",len(train_loader))
-    print("val_loader:", len(val_loaders))
-    print("test_loader:", len(test_loader))
-    print("num_classes:",num_classes)
-    print("targets:",len(targets))
 
     model = get_model(args, num_classes, base_width=args.base_width)
     if torch.cuda.device_count() > 1:
@@ -195,6 +204,7 @@ def train(train_loader, model, criterion, optimizer, epoch):
     """
         Run one train epoch
     """
+
     batch_time = AverageMeter()
     data_time = AverageMeter()
     losses = AverageMeter()
@@ -243,6 +253,14 @@ def train(train_loader, model, criterion, optimizer, epoch):
                       epoch, i+1, len(train_loader), lr=lr, batch_time=batch_time,
                       data_time=data_time, loss=losses, top1=top1))
 
+    train_loss.append(losses.avg)
+    train_acc.append(top1.avg)
+
+    np.save(os.path.join(args.result_dir, "train_acc.npy"), train_acc)
+    np.save(os.path.join(args.result_dir, "train_loss.npy"), train_loss)
+
+
+
 
 def validate(val_loader, model):
     """
@@ -278,6 +296,12 @@ def validate(val_loader, model):
         end = time.time()
 
     print(' * Prec@1 {top1.avg:.3f}'.format(top1=top1))
+    test_loss.append(losses.avg)
+    test_acc.append(top1.avg)
+
+    np.save(os.path.join(args.result_dir,"test_acc.npy"),test_acc)
+    np.save(os.path.join(args.result_dir,"test_loss.npy"),test_loss)
+
 
     return top1.avg
 
