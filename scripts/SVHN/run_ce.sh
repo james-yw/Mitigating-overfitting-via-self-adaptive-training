@@ -6,8 +6,14 @@ LR_SCHEDULE='cosine'
 EPOCHS=100
 BATCH_SIZE=128
 LOSS=ce
-NOISE_RATE=0
-NOISE_TYPE='corrupted_label'
+NOISE_RATE=0.4
+
+#NOISE_TYPE='corrupted_label'
+NOISE_TYPE='Gaussian'
+#NOISE_TYPE='random_pixels'
+#NOISE_TYPE='shuffled_pixels'
+
+
 TRAIN_SETS='trainval'
 VAL_SETS='test_set'
 EXP_NAME=${DATASET}/${ARCH}_${LOSS}_${NOISE_TYPE}_r${NOISE_RATE}_${LR_SCHEDULE}_$1
