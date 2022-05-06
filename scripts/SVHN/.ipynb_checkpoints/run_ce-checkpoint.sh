@@ -9,14 +9,14 @@ LOSS=ce
 NOISE_RATE=0.4
 
 #NOISE_TYPE='corrupted_label'
-NOISE_TYPE='Gaussian'
+#NOISE_TYPE='Gaussian'
 #NOISE_TYPE='random_pixels'
-#NOISE_TYPE='shuffled_pixels'
+NOISE_TYPE='shuffled_pixels'
 
 
 TRAIN_SETS='trainval'
 VAL_SETS='test_set'
-EXP_NAME=${DATASET}/${ARCH}_${LOSS}_${NOISE_TYPE}_r${NOISE_RATE}_${LR_SCHEDULE}_$1
+EXP_NAME=${DATASET}/${ARCH}_${LOSS}_${NOISE_TYPE}_r${NOISE_RATE}_${LR_SCHEDULE}_${VAL_SETS}_$1
 SAVE_DIR=ckpts/${EXP_NAME}
 LOG_FILE=logs/${EXP_NAME}.log
 GPU_ID='0'
