@@ -1,0 +1,133 @@
+Namespace(arch='resnet18', base_width=64, batch_size=128, data_root='../DATASETS/SVHN', dataset='SVHN', epochs=100, evaluate=False, loss='ce', lr=0.1, lr_gamma=0.1, lr_milestones=[40, 80], lr_schedule='cosine', momentum=0.9, noise_info=None, noise_rate=0.4, noise_type='Gaussian', optimizer='sgd', print_freq=50, result_dir='results/SVHN/resnet18_ce_Gaussian_r0.4_cosine_', resume='', sat_alpha=0.9, sat_es=0, save_dir='ckpts/SVHN/resnet18_ce_Gaussian_r0.4_cosine_', save_freq=0, seed=127, start_epoch=0, train_sets='trainval', turn_off_aug=False, use_refined_label=False, val_sets=['test_set'], weight_decay=0.0005, workers=4)
+Using downloaded and verified file: ../DATASETS/SVHN/train_32x32.mat
+data shape: (73257, 3, 32, 32)
+Using downloaded and verified file: ../DATASETS/SVHN/test_32x32.mat
+data shape: (26032, 3, 32, 32)
+Randomizing 40.0 percent of images with `Gaussian` scheme.
+n_train:73257  n_rand:29302 randomize_indices:[14339 10086 50197 ...  3723 60529 19965]
+randomize_iamges: (29302, 32, 32, 3)
+randomize_iamges: (29302, 3, 32, 32)
+Noise info is saved to ckpts/SVHN/resnet18_ce_Gaussian_r0.4_cosine_
+Size of dataset: 73257.
+Using `SGD` optimizer
+Using `cosine` schedule
+****************************************
+/opt/conda/lib/python3.6/site-packages/torch/optim/lr_scheduler.py:136: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate", UserWarning)
+/opt/conda/lib/python3.6/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+Epoch: [0][50/573]	LR 0.100000	Time 0.313 (0.397)	Data 0.000 (0.016)	Loss 2.2127 (2.9629)	Prec@1 23.438 (15.000)
+Epoch: [0][100/573]	LR 0.100000	Time 0.314 (0.355)	Data 0.000 (0.008)	Loss 2.2030 (2.6033)	Prec@1 25.000 (17.133)
+Epoch: [0][150/573]	LR 0.100000	Time 0.312 (0.312)	Data 0.000 (0.005)	Loss 2.2486 (2.4809)	Prec@1 21.875 (17.906)
+Epoch: [0][200/573]	LR 0.100000	Time 0.315 (0.312)	Data 0.000 (0.004)	Loss 2.2423 (2.4200)	Prec@1 20.312 (18.062)
+Epoch: [0][250/573]	LR 0.100000	Time 0.316 (0.306)	Data 0.006 (0.003)	Loss 2.2662 (2.3828)	Prec@1 20.312 (18.341)
+Epoch: [0][300/573]	LR 0.100000	Time 0.357 (0.306)	Data 0.001 (0.003)	Loss 2.2525 (2.3592)	Prec@1 14.062 (18.255)
+Epoch: [0][350/573]	LR 0.100000	Time 0.316 (0.313)	Data 0.000 (0.003)	Loss 2.2928 (2.3434)	Prec@1 11.719 (18.246)
+Epoch: [0][400/573]	LR 0.100000	Time 0.359 (0.318)	Data 0.000 (0.002)	Loss 2.2682 (2.3302)	Prec@1 20.312 (18.369)
+Epoch: [0][450/573]	LR 0.100000	Time 0.402 (0.327)	Data 0.000 (0.002)	Loss 2.2558 (2.3204)	Prec@1 17.188 (18.396)
+Epoch: [0][500/573]	LR 0.100000	Time 0.402 (0.334)	Data 0.000 (0.002)	Loss 2.2340 (2.3122)	Prec@1 20.312 (18.477)
+Epoch: [0][550/573]	LR 0.100000	Time 0.403 (0.340)	Data 0.000 (0.002)	Loss 2.2113 (2.3058)	Prec@1 21.875 (18.472)
+Epoch: [0][573/573]	LR 0.100000	Time 3.584 (0.348)	Data 0.000 (0.002)	Loss 2.1690 (2.3028)	Prec@1 26.829 (18.513)
+****************************************
+test_set:	 * Prec@1 19.587
+****************************************
+Epoch: [1][50/573]	LR 0.099975	Time 0.404 (0.407)	Data 0.000 (0.006)	Loss 2.2597 (2.2349)	Prec@1 18.750 (18.766)
+Epoch: [1][100/573]	LR 0.099975	Time 0.404 (0.405)	Data 0.000 (0.003)	Loss 2.2417 (2.2350)	Prec@1 22.656 (18.961)
+Epoch: [1][150/573]	LR 0.099975	Time 0.402 (0.404)	Data 0.000 (0.002)	Loss 2.2576 (2.2375)	Prec@1 18.750 (18.870)
+Epoch: [1][200/573]	LR 0.099975	Time 0.403 (0.404)	Data 0.000 (0.002)	Loss 2.1677 (2.2365)	Prec@1 28.125 (18.957)
+Epoch: [1][250/573]	LR 0.099975	Time 0.402 (0.402)	Data 0.000 (0.001)	Loss 2.2424 (2.2370)	Prec@1 18.750 (18.956)
+Epoch: [1][300/573]	LR 0.099975	Time 0.402 (0.401)	Data 0.000 (0.001)	Loss 2.2410 (2.2374)	Prec@1 17.188 (18.893)
+Epoch: [1][350/573]	LR 0.099975	Time 0.399 (0.400)	Data 0.000 (0.001)	Loss 2.2132 (2.2367)	Prec@1 19.531 (18.924)
+Epoch: [1][400/573]	LR 0.099975	Time 0.381 (0.399)	Data 0.000 (0.001)	Loss 2.2467 (2.2373)	Prec@1 17.969 (18.949)
+Epoch: [1][450/573]	LR 0.099975	Time 0.400 (0.399)	Data 0.000 (0.001)	Loss 2.2228 (2.2375)	Prec@1 17.969 (18.927)
+Epoch: [1][500/573]	LR 0.099975	Time 0.402 (0.399)	Data 0.000 (0.001)	Loss 2.2318 (2.2369)	Prec@1 18.750 (18.992)
+Epoch: [1][550/573]	LR 0.099975	Time 0.404 (0.399)	Data 0.000 (0.001)	Loss 2.1935 (2.2368)	Prec@1 25.781 (19.020)
+Epoch: [1][573/573]	LR 0.099975	Time 0.183 (0.399)	Data 0.000 (0.001)	Loss 2.1424 (2.2367)	Prec@1 26.829 (19.037)
+****************************************
+test_set:	 * Prec@1 20.360
+****************************************
+Epoch: [2][50/573]	LR 0.099901	Time 0.403 (0.406)	Data 0.000 (0.006)	Loss 2.2788 (2.2307)	Prec@1 17.188 (20.094)
+Epoch: [2][100/573]	LR 0.099901	Time 0.403 (0.405)	Data 0.000 (0.003)	Loss 2.1814 (2.2250)	Prec@1 21.875 (19.914)
+Epoch: [2][150/573]	LR 0.099901	Time 0.402 (0.404)	Data 0.000 (0.002)	Loss 2.2422 (2.2259)	Prec@1 18.750 (19.818)
+Epoch: [2][200/573]	LR 0.099901	Time 0.402 (0.404)	Data 0.000 (0.002)	Loss 2.2272 (2.2257)	Prec@1 14.844 (19.613)
+Epoch: [2][250/573]	LR 0.099901	Time 0.401 (0.403)	Data 0.000 (0.001)	Loss 2.1333 (2.2230)	Prec@1 26.562 (19.803)
+Epoch: [2][300/573]	LR 0.099901	Time 0.402 (0.402)	Data 0.000 (0.001)	Loss 2.1169 (2.2175)	Prec@1 24.219 (20.039)
+Epoch: [2][350/573]	LR 0.099901	Time 0.372 (0.402)	Data 0.000 (0.001)	Loss 1.8889 (2.1961)	Prec@1 34.375 (20.837)
+Epoch: [2][400/573]	LR 0.099901	Time 0.402 (0.402)	Data 0.000 (0.001)	Loss 1.9706 (2.1651)	Prec@1 28.125 (22.051)
+Epoch: [2][450/573]	LR 0.099901	Time 0.400 (0.401)	Data 0.000 (0.001)	Loss 1.8379 (2.1312)	Prec@1 34.375 (23.271)
+Epoch: [2][500/573]	LR 0.099901	Time 0.403 (0.401)	Data 0.000 (0.001)	Loss 1.6617 (2.0900)	Prec@1 39.844 (24.875)
+Epoch: [2][550/573]	LR 0.099901	Time 0.404 (0.401)	Data 0.000 (0.001)	Loss 1.3437 (2.0434)	Prec@1 49.219 (26.716)
+Epoch: [2][573/573]	LR 0.099901	Time 0.183 (0.401)	Data 0.000 (0.001)	Loss 1.7215 (2.0228)	Prec@1 43.902 (27.511)
+****************************************
+test_set:	 * Prec@1 58.217
+****************************************
+Epoch: [3][50/573]	LR 0.099778	Time 0.404 (0.408)	Data 0.000 (0.006)	Loss 1.4735 (1.4503)	Prec@1 48.438 (49.031)
+Epoch: [3][100/573]	LR 0.099778	Time 0.404 (0.406)	Data 0.000 (0.003)	Loss 1.4135 (1.4199)	Prec@1 49.219 (50.125)
+Epoch: [3][150/573]	LR 0.099778	Time 0.402 (0.405)	Data 0.000 (0.002)	Loss 1.1362 (1.3821)	Prec@1 58.594 (51.589)
+Epoch: [3][200/573]	LR 0.099778	Time 0.402 (0.404)	Data 0.000 (0.002)	Loss 1.4601 (1.3527)	Prec@1 50.781 (52.770)
+Epoch: [3][250/573]	LR 0.099778	Time 0.403 (0.403)	Data 0.000 (0.001)	Loss 1.2955 (1.3398)	Prec@1 54.688 (53.153)
+Epoch: [3][300/573]	LR 0.099778	Time 0.403 (0.403)	Data 0.000 (0.001)	Loss 1.2515 (1.3274)	Prec@1 56.250 (53.609)
+Epoch: [3][350/573]	LR 0.099778	Time 0.400 (0.402)	Data 0.000 (0.001)	Loss 1.1214 (1.3164)	Prec@1 64.844 (53.993)
+Epoch: [3][400/573]	LR 0.099778	Time 0.375 (0.402)	Data 0.000 (0.001)	Loss 1.1910 (1.3074)	Prec@1 56.250 (54.346)
+Epoch: [3][450/573]	LR 0.099778	Time 0.401 (0.401)	Data 0.000 (0.001)	Loss 1.2141 (1.2945)	Prec@1 57.031 (54.776)
+Epoch: [3][500/573]	LR 0.099778	Time 0.400 (0.401)	Data 0.000 (0.001)	Loss 1.0278 (1.2898)	Prec@1 63.281 (54.916)
+Epoch: [3][550/573]	LR 0.099778	Time 0.404 (0.401)	Data 0.000 (0.001)	Loss 1.1669 (1.2810)	Prec@1 60.156 (55.182)
+Epoch: [3][573/573]	LR 0.099778	Time 0.182 (0.401)	Data 0.000 (0.001)	Loss 1.3097 (1.2787)	Prec@1 51.220 (55.252)
+****************************************
+test_set:	 * Prec@1 79.633
+****************************************
+Epoch: [4][50/573]	LR 0.099606	Time 0.404 (0.407)	Data 0.000 (0.005)	Loss 1.2369 (1.1793)	Prec@1 55.469 (58.172)
+Epoch: [4][100/573]	LR 0.099606	Time 0.404 (0.406)	Data 0.000 (0.003)	Loss 1.2670 (1.1867)	Prec@1 53.906 (58.180)
+Epoch: [4][150/573]	LR 0.099606	Time 0.403 (0.405)	Data 0.000 (0.002)	Loss 1.3444 (1.1867)	Prec@1 57.031 (58.302)
+Epoch: [4][200/573]	LR 0.099606	Time 0.402 (0.404)	Data 0.000 (0.002)	Loss 1.2643 (1.1870)	Prec@1 52.344 (58.273)
+Epoch: [4][250/573]	LR 0.099606	Time 0.402 (0.403)	Data 0.000 (0.001)	Loss 1.1161 (1.1888)	Prec@1 63.281 (58.372)
+Epoch: [4][300/573]	LR 0.099606	Time 0.401 (0.403)	Data 0.000 (0.001)	Loss 1.0971 (1.1862)	Prec@1 64.062 (58.430)
+Epoch: [4][350/573]	LR 0.099606	Time 0.400 (0.402)	Data 0.000 (0.001)	Loss 1.2453 (1.1801)	Prec@1 58.594 (58.703)
+Epoch: [4][400/573]	LR 0.099606	Time 0.383 (0.402)	Data 0.000 (0.001)	Loss 1.1236 (1.1755)	Prec@1 64.062 (58.879)
+Epoch: [4][450/573]	LR 0.099606	Time 0.401 (0.401)	Data 0.000 (0.001)	Loss 1.1360 (1.1721)	Prec@1 57.031 (58.977)
+Epoch: [4][500/573]	LR 0.099606	Time 0.401 (0.401)	Data 0.000 (0.001)	Loss 1.1930 (1.1692)	Prec@1 62.500 (59.119)
+Epoch: [4][550/573]	LR 0.099606	Time 0.404 (0.401)	Data 0.000 (0.001)	Loss 1.1627 (1.1678)	Prec@1 57.031 (59.173)
+Epoch: [4][573/573]	LR 0.099606	Time 0.182 (0.401)	Data 0.000 (0.001)	Loss 1.2723 (1.1680)	Prec@1 51.220 (59.144)
+****************************************
+test_set:	 * Prec@1 86.010
+****************************************
+Epoch: [5][50/573]	LR 0.099384	Time 0.404 (0.409)	Data 0.000 (0.007)	Loss 1.0180 (1.1673)	Prec@1 65.625 (58.750)
+Epoch: [5][100/573]	LR 0.099384	Time 0.404 (0.406)	Data 0.000 (0.004)	Loss 1.0271 (1.1543)	Prec@1 65.625 (59.102)
+Epoch: [5][150/573]	LR 0.099384	Time 0.402 (0.405)	Data 0.000 (0.003)	Loss 1.3583 (1.1482)	Prec@1 53.906 (59.630)
+Epoch: [5][200/573]	LR 0.099384	Time 0.402 (0.404)	Data 0.000 (0.002)	Loss 1.0581 (1.1381)	Prec@1 61.719 (60.133)
+Epoch: [5][250/573]	LR 0.099384	Time 0.402 (0.403)	Data 0.000 (0.002)	Loss 0.9709 (1.1436)	Prec@1 68.750 (59.981)
+Epoch: [5][300/573]	LR 0.099384	Time 0.402 (0.403)	Data 0.000 (0.001)	Loss 1.1246 (1.1423)	Prec@1 58.594 (59.935)
+Epoch: [5][350/573]	LR 0.099384	Time 0.399 (0.402)	Data 0.000 (0.001)	Loss 1.2275 (1.1410)	Prec@1 59.375 (60.042)
+Epoch: [5][400/573]	LR 0.099384	Time 0.401 (0.402)	Data 0.000 (0.001)	Loss 1.3254 (1.1382)	Prec@1 55.469 (60.162)
+Epoch: [5][450/573]	LR 0.099384	Time 0.400 (0.401)	Data 0.000 (0.001)	Loss 1.3526 (1.1405)	Prec@1 51.562 (60.130)
+Epoch: [5][500/573]	LR 0.099384	Time 0.402 (0.401)	Data 0.000 (0.001)	Loss 1.2802 (1.1399)	Prec@1 55.469 (60.087)
+Epoch: [5][550/573]	LR 0.099384	Time 0.404 (0.401)	Data 0.000 (0.001)	Loss 1.3400 (1.1418)	Prec@1 55.469 (60.016)
+Epoch: [5][573/573]	LR 0.099384	Time 0.184 (0.401)	Data 0.000 (0.001)	Loss 1.2448 (1.1426)	Prec@1 65.854 (59.994)
+****************************************
+test_set:	 * Prec@1 84.988
+****************************************
+Epoch: [6][50/573]	LR 0.099114	Time 0.403 (0.407)	Data 0.000 (0.005)	Loss 1.1613 (1.1403)	Prec@1 57.031 (60.219)
+Epoch: [6][100/573]	LR 0.099114	Time 0.404 (0.405)	Data 0.000 (0.003)	Loss 1.1325 (1.1423)	Prec@1 58.594 (60.023)
+Epoch: [6][150/573]	LR 0.099114	Time 0.402 (0.405)	Data 0.000 (0.002)	Loss 1.2739 (1.1380)	Prec@1 53.906 (60.234)
+Epoch: [6][200/573]	LR 0.099114	Time 0.401 (0.404)	Data 0.000 (0.001)	Loss 1.0633 (1.1386)	Prec@1 62.500 (59.973)
+Epoch: [6][250/573]	LR 0.099114	Time 0.403 (0.403)	Data 0.000 (0.001)	Loss 1.0775 (1.1320)	Prec@1 65.625 (60.247)
+Epoch: [6][300/573]	LR 0.099114	Time 0.403 (0.403)	Data 0.000 (0.001)	Loss 1.1215 (1.1337)	Prec@1 58.594 (60.138)
+Epoch: [6][350/573]	LR 0.099114	Time 0.400 (0.402)	Data 0.000 (0.001)	Loss 0.9942 (1.1337)	Prec@1 68.750 (60.132)
+Epoch: [6][400/573]	LR 0.099114	Time 0.400 (0.402)	Data 0.000 (0.001)	Loss 1.0840 (1.1328)	Prec@1 62.500 (60.176)
+Epoch: [6][450/573]	LR 0.099114	Time 0.400 (0.402)	Data 0.000 (0.001)	Loss 1.0185 (1.1291)	Prec@1 67.969 (60.325)
+Epoch: [6][500/573]	LR 0.099114	Time 0.403 (0.401)	Data 0.000 (0.001)	Loss 1.1438 (1.1289)	Prec@1 60.156 (60.327)
+Epoch: [6][550/573]	LR 0.099114	Time 0.404 (0.401)	Data 0.000 (0.001)	Loss 1.2210 (1.1277)	Prec@1 60.938 (60.405)
+Epoch: [6][573/573]	LR 0.099114	Time 0.181 (0.401)	Data 0.000 (0.001)	Loss 1.2907 (1.1263)	Prec@1 51.220 (60.469)
+****************************************
+test_set:	 * Prec@1 84.350
+****************************************
+Epoch: [7][50/573]	LR 0.098796	Time 0.403 (0.406)	Data 0.000 (0.006)	Loss 1.1404 (1.1180)	Prec@1 60.938 (60.781)
+Epoch: [7][100/573]	LR 0.098796	Time 0.358 (0.401)	Data 0.000 (0.003)	Loss 1.1807 (1.1271)	Prec@1 55.469 (60.602)
+Traceback (most recent call last):
+  File "main.py", line 310, in <module>
+    main()
+  File "main.py", line 160, in main
+    train(train_loader, model, criterion, optimizer, epoch)
+  File "main.py", line 238, in train
+    losses.update(loss.item(), input.size(0))
+KeyboardInterrupt

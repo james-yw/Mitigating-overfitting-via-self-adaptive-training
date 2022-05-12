@@ -1,0 +1,41 @@
+Namespace(arch='resnet18', base_width=64, batch_size=128, data_root='../DATASETS/SVHN', dataset='SVHN', epochs=100, evaluate=False, loss='sat', lr=0.1, lr_gamma=0.1, lr_milestones=[40, 80], lr_schedule='cosine', momentum=0.9, noise_info=None, noise_rate=0.4, noise_type='Gaussian', optimizer='sgd', print_freq=50, result_dir='results/SVHN/resnet18_sat_Gaussian_r0.4_cosine_', resume='', sat_alpha=0.9, sat_es=60, save_dir='ckpts/SVHN/resnet18_sat_Gaussian_r0.4_cosine_', save_freq=0, seed=497, start_epoch=0, train_sets='trainval', turn_off_aug=False, use_refined_label=False, val_sets=['test_set'], weight_decay=0.0005, workers=4)
+Using downloaded and verified file: ../DATASETS/SVHN/train_32x32.mat
+data shape: (73257, 3, 32, 32)
+Using downloaded and verified file: ../DATASETS/SVHN/test_32x32.mat
+data shape: (26032, 3, 32, 32)
+Randomizing 40.0 percent of images with `Gaussian` scheme.
+n_train:73257  n_rand:29302 randomize_indices:[58902 28198 43988 ... 38961 42572 34405]
+randomize_iamges: (29302, 32, 32, 3)
+randomize_iamges: (29302, 3, 32, 32)
+Noise info is saved to ckpts/SVHN/resnet18_sat_Gaussian_r0.4_cosine_
+Size of dataset: 73257.
+Using `SGD` optimizer
+Using `cosine` schedule
+****************************************
+/opt/conda/lib/python3.6/site-packages/torch/optim/lr_scheduler.py:136: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate", UserWarning)
+/opt/conda/lib/python3.6/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+Epoch: [0][50/573]	LR 0.100000	Time 0.400 (0.499)	Data 0.000 (0.016)	Loss 2.2245 (2.9158)	Prec@1 23.438 (17.344)
+Epoch: [0][100/573]	LR 0.100000	Time 0.402 (0.449)	Data 0.000 (0.008)	Loss 2.2354 (2.5824)	Prec@1 19.531 (17.734)
+Epoch: [0][150/573]	LR 0.100000	Time 0.404 (0.433)	Data 0.000 (0.005)	Loss 2.2012 (2.4702)	Prec@1 25.781 (18.193)
+Epoch: [0][200/573]	LR 0.100000	Time 0.400 (0.423)	Data 0.000 (0.004)	Loss 2.2513 (2.4123)	Prec@1 15.625 (18.219)
+Epoch: [0][250/573]	LR 0.100000	Time 0.375 (0.418)	Data 0.000 (0.003)	Loss 2.2223 (2.3778)	Prec@1 20.312 (18.369)
+Epoch: [0][300/573]	LR 0.100000	Time 0.403 (0.415)	Data 0.001 (0.003)	Loss 2.1987 (2.3541)	Prec@1 21.094 (18.602)
+Epoch: [0][350/573]	LR 0.100000	Time 0.404 (0.414)	Data 0.000 (0.003)	Loss 2.2741 (2.3373)	Prec@1 14.062 (18.603)
+Epoch: [0][400/573]	LR 0.100000	Time 0.402 (0.412)	Data 0.001 (0.002)	Loss 2.2396 (2.3253)	Prec@1 22.656 (18.633)
+Epoch: [0][450/573]	LR 0.100000	Time 0.372 (0.410)	Data 0.000 (0.002)	Loss 2.2409 (2.3162)	Prec@1 15.625 (18.590)
+Epoch: [0][500/573]	LR 0.100000	Time 0.402 (0.409)	Data 0.000 (0.002)	Loss 2.2556 (2.3082)	Prec@1 17.188 (18.670)
+Epoch: [0][550/573]	LR 0.100000	Time 0.402 (0.408)	Data 0.000 (0.002)	Loss 2.2190 (2.3019)	Prec@1 21.875 (18.666)
+Epoch: [0][573/573]	LR 0.100000	Time 3.441 (0.413)	Data 0.000 (0.002)	Loss 2.2652 (2.2993)	Prec@1 17.073 (18.667)
+****************************************
+test_set:	 * Prec@1 19.576
+****************************************
+Epoch: [1][50/573]	LR 0.099975	Time 0.365 (0.405)	Data 0.000 (0.005)	Loss 2.2781 (2.2441)	Prec@1 16.406 (18.531)
+Epoch: [1][100/573]	LR 0.099975	Time 0.403 (0.402)	Data 0.000 (0.003)	Loss 2.2504 (2.2419)	Prec@1 21.094 (19.039)
+Epoch: [1][150/573]	LR 0.099975	Time 0.403 (0.402)	Data 0.000 (0.002)	Loss 2.2165 (2.2394)	Prec@1 17.969 (18.844)
+Epoch: [1][200/573]	LR 0.099975	Time 0.401 (0.402)	Data 0.000 (0.001)	Loss 2.2077 (2.2389)	Prec@1 22.656 (18.953)
+Epoch: [1][250/573]	LR 0.099975	Time 0.403 (0.401)	Data 0.000 (0.001)	Loss 2.2152 (2.2378)	Prec@1 21.875 (19.047)
+Epoch: [1][300/573]	LR 0.099975	Time 0.403 (0.401)	Data 0.000 (0.001)	Loss 2.2332 (2.2367)	Prec@1 18.750 (19.042)
+Epoch: [1][350/573]	LR 0.099975	Time 0.402 (0.402)	Data 0.000 (0.001)	Loss 2.1994 (2.2362)	Prec@1 23.438 (19.076)
+Epoch: [1][400/573]	LR 0.099975	Time 0.401 (0.402)	Data 0.000 (0.001)	Loss 2.2094 (2.2367)	Prec@1 17.969 (19.061)
