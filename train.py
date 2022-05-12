@@ -28,7 +28,7 @@ parser.add_argument('--base-width', default=64, type=int,
                     help='base width of resnets or hidden dim of fc nets')
 # training setting
 parser.add_argument('--data-root', help='The directory of data',
-                    default='./DATASETS/SVHN', type=str)
+                    default='../DATASETS/SVHN', type=str)
 parser.add_argument('--dataset', help='dataset used to training',
                     default='SVHN', type=str)
 parser.add_argument('--train-sets', help='subsets (train/trainval) that used to training',
@@ -41,7 +41,7 @@ parser.add_argument('--start-epoch', default=0, type=int, metavar='N',
                     help='manual epoch number (useful on restarts)')
 parser.add_argument('--resume', default='', type=str, metavar='PATH',
                     help='path to latest checkpoint (default: none)')
-parser.add_argument('-b', '--batch-size', default=1, type=int,
+parser.add_argument('-b', '--batch-size', default=256, type=int,
                     metavar='N', help='mini-batch size (default: 128)')
 parser.add_argument('--optimizer', default='sgd', type=str,
                     help='optimizer for training')
